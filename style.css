@@ -1,0 +1,15 @@
+.btn:focus,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus {
+    box-shadow: none;
+}
+
+.form-control:focus,.form-control:active:focus,.form-control.active:focus,
+.form-control.focus,.form-control:active.focus,.form-control.active.focus {
+    box-shadow: none;
+}
+
+
+.col-white {
+    background-color: white;
+}
+
