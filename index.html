@@ -61,24 +61,23 @@
         </p>
         <div>
           <div class="my-4 mb-3">
-            <!-- <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label> -->
 
             <textarea
               class="form-control bg-light"
               placeholder="Enter text here"
-              id="exampleFormControlTextarea1"
+              id="textbox"
               rows="8"
             ></textarea>
             <div>
-                <span>Word count: 11 |Letter count: 56</span>
+                <p class="count-txt">Word count: 11 |Letter count: </p>
             </div>
             <div>
-              <button class="btn btn-primary my-3">UPPER CASE</button>
-              <button class="btn btn-primary my-3 mx-2">lower case</button>
-              <button class="btn btn-primary my-3 mx-2">Sentence case</button>
-              <button class="btn btn-primary my-3 mx-2">Capitalized Case</button>
-              <button class="btn btn-primary my-3 mx-2">Copy Text</button>
-              <button class="btn btn-primary my-3 mx-2">Clear</button>
+              <button id="hendleUpCase" class="btn btn-primary my-3">UPPER CASE</button>
+              <button id="hendeLowCase" class="btn btn-primary my-3 mx-2">lower case</button>
+              <button id="hendleSenCase" class="btn btn-primary my-3 mx-2">Sentence case</button>
+              <button id="hendleCapCase" class="btn btn-primary my-3 mx-2">Capitalized Case</button>
+              <button id="hendleCopy" class="btn btn-primary my-3 mx-2">Copy Text</button>
+              <button id="hendleClear" class="btn btn-primary my-3 mx-2">Clear</button>
             </div>
           </div>
         </div>
@@ -86,9 +85,9 @@
     </div>
 
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      <!-- src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script> -->
+      <script src="script.js"></script>
   </body>
 </html>
