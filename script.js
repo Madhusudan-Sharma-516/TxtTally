@@ -77,3 +77,23 @@ document.querySelector("#hendleCopy").addEventListener('click', function() {
 document.querySelector("#hendleClear").addEventListener('click', () =>{
     input.value = "";
 }) ;
+
+
+// dark mode 
+
+let darkBtn = document.querySelector("#darkModeSwitch");
+let darkCheck = false;
+
+darkBtn.addEventListener("click", () => {
+  // let element = document.body;
+  let element = document.querySelector("html");
+  
+  if(darkCheck == false){
+    element.style.mixBlendMode = "difference";
+    darkCheck = true;
+  }else{
+    element.style.mixBlendMode = "normal";
+    darkCheck = false;
+  }
+  
+})
