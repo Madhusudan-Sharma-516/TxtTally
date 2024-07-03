@@ -1,9 +1,16 @@
 let input = document.querySelector("#textbox")
 let countTxt =  document.querySelector(".count-txt")
 
-// let letterCount = input.value.length;
-// console.dir(countTxt);
-// countTxt.innerText = `Word count: 11 |Letter count: ${letterCount}`; 
+function countWords(str) {
+    return str.split(' ').filter(function(word) {
+        return word !== '';
+    }).length;
+}
+
+
+let letterCount = length(input.value);
+let wordCount = countWords(input.value);
+countTxt.innerText = `Word count: $(wordCount) |Letter count: ${letterCount}`; 
 
 
 // upper case 
