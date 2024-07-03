@@ -1,79 +1,74 @@
-let input = document.querySelector("#textbox")
-let countTxt =  document.querySelector(".count-txt")
+let input = document.querySelector("#textbox");
+let countTxt = document.querySelector(".count-txt");
 
 function countWords(str) {
-    return str.split(' ').filter(function(word) {
-        return word !== '';
-    }).length;
+    return str.trim().split(/\s+/).filter(word => word !== '').length;
 }
 
+function updateCounts() {
+    let letterCount = input.value.length;
+    let wordCount = countWords(input.value);
+    countTxt.innerText = `Word count: ${wordCount} | Letter count: ${letterCount}`;
+}
 
-let letterCount = length(input.value);
-let wordCount = countWords(input.value);
-countTxt.innerText = `Word count: ${wordCount} |Letter count: ${letterCount}`; 
+// Initial count update
+updateCounts();
 
+// Update counts on input change
+input.addEventListener('input', updateCounts);
 
-// upper case 
-document.querySelector("#hendleUpCase").addEventListener('click', () =>{
+// Upper case
+document.querySelector("#handleUpCase").addEventListener('click', () => {
     input.value = input.value.toUpperCase();
-}) ;
+    updateCounts();
+});
 
-// lower case 
-document.querySelector("#hendeLowCase").addEventListener('click', () =>{
+// Lower case
+document.querySelector("#handleLowCase").addEventListener('click', () => {
     input.value = input.value.toLowerCase();
-}) ;
+    updateCounts();
+});
 
-// capital caase function 
+// Title case
 function toTitleCase(str) {
-    return str.replace(
-      /\w\S*/g,
-      text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
-    );
-  }
-document.querySelector("#hendleCapCase").addEventListener('click', () =>{
+    return str.replace(/\w\S*/g, text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase());
+}
+document.querySelector("#handleCapCase").addEventListener('click', () => {
     input.value = toTitleCase(input.value);
-}) ;
+    updateCounts();
+});
 
-// SentenceCase function  
-
+// Sentence case
 function toSentenceCase(str) {
-   
-    return str
-      .split(/([.!?]\s*)/)  
-      .map((sentence, index) => {
-        if (index % 2 === 0) {
-          return sentence.charAt(0).toUpperCase() + sentence.slice(1).toLowerCase();
-        } else {
-          return sentence;
+    return str.split(/([.!?]\s*)/).map((sentence, index) => {
+        if (index % 2 === 0 && sentence.length > 0) {
+            return sentence.charAt(0).toUpperCase() + sentence.slice(1).toLowerCase();
         }
-      })
-      .join('');
-  }
-
-  document.querySelector("#hendleSenCase").addEventListener('click', () =>{
+        return sentence;
+    }).join('');
+}
+document.querySelector("#handleSenCase").addEventListener('click', () => {
     input.value = toSentenceCase(input.value);
-}) ;
+    updateCounts();
+});
 
-
-// copy function 
-document.querySelector("#hendleCopy").addEventListener('click', function() {
-    let input = document.querySelector("#textbox");
+// Copy to clipboard
+document.querySelector("#handleCopy").addEventListener('click', () => {
     input.select();
-
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(input.value).then(function() {
-        alert('Text copied to clipboard');
-      }, function(err) {
-        console.error('Failed to copy: ', err);
-      });
+        navigator.clipboard.writeText(input.value).then(() => {
+            alert('Text copied to clipboard');
+        }, err => {
+            console.error('Failed to copy: ', err);
+        });
     } else {
-      document.execCommand('copy');
-      alert('Text copied to clipboard');
+        document.execCommand('copy');
+        alert('Text copied to clipboard');
     }
-  });
+});
 
-
-// clear box 
-document.querySelector("#hendleClear").addEventListener('click', () =>{
+// Clear textbox
+document.querySelector("#handleClear").addEventListener('click', () => {
     input.value = "";
-}) ;
+    updateCounts();
+});
