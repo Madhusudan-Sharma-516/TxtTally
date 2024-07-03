@@ -63,7 +63,7 @@ document.querySelector("#hendleCopy").addEventListener('click', function() {
 
     if (navigator.clipboard) {
       navigator.clipboard.writeText(input.value).then(function() {
-        
+        alert('Text copied to clipboard');
       }, function(err) {
         console.error('Failed to copy: ', err);
       });
