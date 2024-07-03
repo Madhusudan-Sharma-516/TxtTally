@@ -10,7 +10,7 @@ function countWords(str) {
 
 let letterCount = length(input.value);
 let wordCount = countWords(input.value);
-countTxt.innerText = `Word count: $(wordCount) |Letter count: ${letterCount}`; 
+countTxt.innerText = `Word count: ${wordCount} |Letter count: ${letterCount}`; 
 
 
 // upper case 
